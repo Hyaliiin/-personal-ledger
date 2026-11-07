@@ -1,0 +1,152 @@
+/* 全局字体、文字颜色和页面背景。 */
+:root{font-family:'Noto Sans SC',sans-serif;color:#25314a;background:#f6f7fb}
+*{box-sizing:border-box}
+body{margin:0}
+button,input,select{font:inherit}
+button{cursor:pointer}
+/* 整体布局与侧边栏。 */
+.app-shell{display:flex;min-height:100vh}
+.sidebar{width:230px;background:#fff;border-right:1px solid #e9ecf2;padding:30px 18px;display:flex;flex-direction:column}
+.brand{display:flex;align-items:center;gap:10px;color:#18243d;text-decoration:none;font-size:19px;font-weight:700;margin:0 12px 55px}
+.brand-mark{background:#7664e8;color:#fff;padding:8px;border-radius:12px}
+.brand-en{display:block;font:10px 'DM Sans',sans-serif;letter-spacing:2px;color:#9ba4b5}
+.side-label,.panel-kicker{font:700 10px 'DM Sans',sans-serif;letter-spacing:2px;color:#a6afbf}
+.side-label{margin:0 14px 17px}
+.nav-item{display:flex;align-items:center;gap:14px;padding:14px;border-radius:11px;text-decoration:none;color:#7c879b;font-size:14px}
+.nav-item.active,.nav-item:hover{background:#f0edff;color:#6957df;font-weight:700}
+.nav-icon{font-size:21px;width:22px;text-align:center}
+.side-bottom{margin-top:auto}
+.privacy-card{display:flex;gap:10px;padding:15px;background:#f8f7ff;border-radius:12px;font-size:12px}
+.privacy-icon{color:#7564e6;font-size:22px}
+.privacy-card small,.profile small{display:block;color:#a1aabc;margin-top:4px}
+.profile{display:flex;align-items:center;gap:10px;margin:24px 8px 0;padding-top:18px;border-top:1px solid #eee;font-size:12px}
+.avatar{border:0;background:#e9dcff;color:#765ed2;border-radius:50%;width:37px;height:37px;display:grid;place-items:center;font-weight:700}
+.more{margin-left:auto}
+/* 主页面、顶部栏和标题区域。 */
+.main-content{width:min(100%,1320px);padding:0 50px;margin:auto}
+.topbar{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #e9ecf2}
+.breadcrumb,.today-label{font-size:12px;color:#8994a8}
+.breadcrumb span{padding:0 9px;color:#c5cad4}
+.top-actions{display:flex;align-items:center;gap:18px}
+.icon-button{width:34px;height:34px;border:1px solid #e3e6ee;border-radius:9px;background:white;color:#788398}
+.small-avatar{width:31px;height:31px}
+.page-heading{display:flex;justify-content:space-between;align-items:end;padding:39px 0 27px}
+.eyebrow{font-size:12px;color:#7664e8;font-weight:700}
+.eyebrow-dot,.pulse-dot{display:inline-block;width:7px;height:7px;background:#7a68e8;border-radius:50%;margin-right:8px}
+.page-heading h1{font-size:31px;letter-spacing:-1px;margin:10px 0 7px}
+.heading-spark{color:#f7ba68;margin-left:8px}
+.page-heading p,.quick-subtitle{color:#929daf;font-size:13px;margin:0}
+.primary-button{border:0;background:#7564e8;color:white;padding:12px 19px;border-radius:10px;font-weight:700;box-shadow:0 8px 17px #7564e82b}
+.primary-button span{font-size:18px}
+.period-row{display:flex;justify-content:space-between;align-items:center;margin:6px 0 18px}
+.period-select{position:relative;background:#fff;border:1px solid #e8ebf2;border-radius:9px;padding:9px 12px;color:#6e7890;font-size:13px}
+.period-select select{border:0;background:transparent;appearance:none;padding:0 22px 0 7px;color:#344159;font-weight:700;outline:0}
+.chevron{position:absolute;right:12px;pointer-events:none}
+.period-note{font-size:11px;color:#a3adbc}
+.pulse-dot{background:#48c8a0}
+/* 月度收入、支出、结余卡片。 */
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}
+.summary-card{position:relative;overflow:hidden;background:#fff;border:1px solid #edf0f5;border-radius:16px;padding:22px 24px;min-height:182px}
+.card-top{display:flex;align-items:center;gap:10px}
+.card-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:9px;font-size:19px}
+.income-icon{background:#e7f8f3;color:#2cbe92}
+.expense-icon{background:#fff0ed;color:#f47c6d}
+.balance-icon{background:#f0edff;color:#7564e8}
+.card-label{font-size:12px;font-weight:700}
+.card-kicker{margin-left:auto;color:#b5bdc9;font:700 9px 'DM Sans';letter-spacing:1px}
+.card-value{margin:18px 0 15px;display:flex;align-items:baseline;gap:5px}
+.card-value span{font-size:17px;font-weight:700}
+.card-value strong{font:700 31px 'DM Sans',sans-serif;letter-spacing:-1px}
+.card-bottom{display:flex;justify-content:space-between;font-size:11px;color:#aab2bf}
+.trend{color:#8792a5}
+.card-decoration{position:absolute;right:15px;bottom:25px;font-size:62px;opacity:.06}
+/* 图表区域和快速记账入口。 */
+.content-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:17px;margin-top:18px}
+.panel{background:#fff;border:1px solid #edf0f5;border-radius:16px;padding:24px}
+.panel-heading{display:flex;justify-content:space-between;align-items:start}
+.panel h2{font-size:18px;margin:8px 0 0}
+.title-period,.record-count{font-size:11px;color:#a0aabb;font-weight:400}
+.text-button{background:none;border:0;color:#7868df;font-size:12px}
+.chart-area{min-height:164px;display:flex;align-items:center;justify-content:center}
+.donut{width:145px;height:145px;border-radius:50%;position:relative}
+.donut:after{content:'';position:absolute;inset:28px;background:white;border-radius:50%}
+.donut-label{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;color:#9aa5b5}
+.donut-label strong{font:700 19px 'DM Sans';color:#344159}
+.legend{display:flex;flex-wrap:wrap;gap:11px;font-size:11px;color:#7d899a}
+.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px}
+.quick-mark{color:#f5bb6a;font-size:25px}
+.quick-subtitle{margin:10px 0 19px}
+.quick-actions{display:grid;gap:10px}
+.quick-action{display:flex;align-items:center;gap:12px;text-align:left;width:100%;border:1px solid #f0edf1;border-radius:11px;background:#fff9f7;padding:12px}
+.quick-income{background:#f6fcfa}
+.quick-action-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:#ffe7e2;color:#ec7b6c;font-size:23px}
+.quick-income .quick-action-icon{background:#ddf7ed;color:#34bb91}
+.quick-action strong{display:block;font-size:12px}
+.quick-action small{color:#a4aebe;font-size:10px}
+.action-arrow{margin-left:auto;color:#a9b3c1}
+.quick-tip{margin-top:19px;background:#faf9ff;border-radius:8px;padding:10px;color:#9994bd;font-size:10px}
+/* 收支明细、筛选表单和表格。 */
+.transactions-panel{margin-top:18px;padding-bottom:0}
+.tx-heading{margin-bottom:19px}
+.record-count{background:#f1f2f6;padding:3px 7px;border-radius:7px}
+.filters{display:flex;gap:9px;margin-bottom:18px;flex-wrap:wrap}
+.search-box{display:flex;align-items:center;gap:7px;border:1px solid #e7eaf0;border-radius:8px;padding:0 10px;flex:1;min-width:150px;color:#aab3c1}
+.search-box input{border:0;outline:0;width:100%;padding:9px 0;font-size:11px}
+.filter-select,.date-filter{border:1px solid #e7eaf0;background:white;border-radius:8px;padding:8px;color:#66738a;font-size:11px}
+.date-filter input{border:0;color:#66738a;max-width:112px;font-size:10px}
+.table-wrap{min-height:150px}
+table{border-collapse:collapse;width:100%;font-size:12px}
+th{text-align:left;color:#a5afbd;font-weight:500;padding:12px;border-bottom:1px solid #edf0f4}
+td{padding:13px 12px;border-bottom:1px solid #f0f2f6;color:#657187}
+.amount-head{text-align:right}
+.amount-cell{text-align:right;font-weight:700}
+.amount-cell.expense{color:#ef806f}
+.amount-cell.income{color:#35b68e}
+.tx-name{font-weight:700;color:#344159}
+.tx-icon{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;margin-right:9px;background:#f4f1ff;color:#7868df}
+.delete-btn{border:0;background:none;color:#b1bbc9}
+.empty-state{display:none;flex-direction:column;align-items:center;padding:22px;color:#9ba6b6;font-size:11px;gap:5px}
+.empty-state strong{color:#536079;font-size:13px}
+.empty-icon{font-size:28px;color:#8d7def}
+.table-footer{display:flex;justify-content:space-between;padding:13px 0;color:#acb5c2;font-size:10px}
+.local-badge i{display:inline-block;background:#4bc89f;width:6px;height:6px;border-radius:50%;margin-right:5px}
+.footer-note{display:flex;justify-content:space-between;padding:22px 0;color:#bac1cc;font-size:10px}
+/* 记账弹窗、输入控件和按钮。 */
+.entry-dialog{width:min(450px,calc(100% - 30px));border:0;border-radius:18px;padding:25px;box-shadow:0 25px 70px #1c275638}
+.entry-dialog::backdrop{background:#26304c77}
+.dialog-top{display:flex;justify-content:space-between}
+.dialog-top h2{margin:8px 0 20px}
+.close-button{border:0;background:transparent;color:#9ca6b6;font-size:25px}
+.type-switch{display:flex;background:#f3f4f8;padding:4px;border-radius:10px;margin-bottom:17px}
+.type-option{flex:1;border:0;background:transparent;border-radius:8px;padding:9px;color:#7f8a9b}
+.type-option.selected{background:white;color:#6958dc;box-shadow:0 2px 8px #29334a14;font-weight:700}
+.field{display:block;margin:13px 0;color:#58657a;font-size:12px;font-weight:700}
+.field>b,.field span b{color:#e57870}
+.field>span{display:block;margin-bottom:7px}
+.field small{font-weight:400;color:#abb4c1}
+.field input,.field select{width:100%;border:1px solid #e2e6ee;border-radius:8px;padding:10px;outline-color:#7664e8;color:#344159}
+.amount-input{display:flex;align-items:center;border:1px solid #e2e6ee;border-radius:8px;padding-left:12px}
+.amount-input input{border:0}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.dialog-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:22px}
+.secondary-button{border:1px solid #e2e6ee;background:white;border-radius:9px;padding:10px 17px;color:#68748a}
+/* 操作反馈提示。 */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:#344159;color:white;padding:10px 18px;border-radius:9px;opacity:0;pointer-events:none;transition:.2s;font-size:12px}
+.toast.show{opacity:1}
+/* 平板尺寸：收起侧边栏并调整内容布局。 */
+@media(max-width:900px){.sidebar{display:none}
+.main-content{padding:0 22px}
+.content-grid{grid-template-columns:1fr}
+}
+/* 手机尺寸：卡片纵向排列，表格允许横向滚动。 */
+@media(max-width:650px){.summary-grid{grid-template-columns:1fr}
+.page-heading{align-items:start;gap:15px}
+.page-heading h1{font-size:24px}
+.topbar{height:60px}
+.today-label,.date-filter{display:none}
+.filters{display:grid;grid-template-columns:1fr 1fr}
+.search-box{grid-column:1/-1}
+.table-wrap{overflow-x:auto}
+table{min-width:650px}
+}
+
