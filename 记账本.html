@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<!-- 页面元数据、字体和样式文件。 -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f6f7fb" />
+  <title>日常账本 · 把每一笔都记清楚</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="07-页面界面/页面样式.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- 左侧导航与本地数据提示。 -->
+    <aside class="sidebar">
+      <a class="brand" href="#top"><span class="brand-mark">花</span><span>小账本<span class="brand-en">MONEY NOTES</span></span></a>
+      <div class="side-label">工作空间</div>
+      <a class="nav-item active" href="#overview"><span class="nav-icon">▦</span>总览</a>
+      <a class="nav-item" href="#transactions"><span class="nav-icon">↕</span>收支明细</a>
+      <a class="nav-item" href="#insights"><span class="nav-icon">◔</span>账单分析</a>
+      <div class="side-bottom"><div class="privacy-card"><span class="privacy-icon">⌑</span><div><strong>数据只在本机</strong><small>安心记录，随时导出</small></div></div><div class="profile"><div class="avatar">林</div><div><strong>我的账本</strong><small>个人空间</small></div><span class="more">···</span></div></div>
+    </aside>
+    <!-- 记账本的主页面区域。 -->
+    <main id="top" class="main-content">
+      <!-- 顶部日期、CSV 导出入口。 -->
+      <header class="topbar"><div class="breadcrumb">我的账本 <span>/</span> 总览</div><div class="top-actions"><span class="today-label" id="todayLabel"></span><button class="icon-button" id="exportBtn" title="导出 CSV" aria-label="导出 CSV">⇩</button><button class="avatar small-avatar">林</button></div></header>
+      <!-- 页面标题和新增记录按钮。 -->
+      <section id="overview" class="page-heading"><div><div class="eyebrow"><span class="eyebrow-dot"></span>个人财务概览</div><h1>每一笔，都有迹可循<span class="heading-spark">✳</span></h1><p>记下日常的点滴收支，让生活更有掌控感。</p></div><button class="primary-button" id="addTopBtn"><span>＋</span> 记一笔</button></section>
+      <!-- 月份选择器，控制月度统计和图表。 -->
+      <section class="period-row"><div class="period-select"><span class="calendar-icon">▦</span><select id="monthSelect" aria-label="统计月份"></select><span class="chevron">⌄</span></div><div class="period-note"><span class="pulse-dot"></span>数据已自动保存</div></section>
+      <!-- 本月收入、支出和结余卡片。 -->
+      <section class="summary-grid" aria-label="本月收支概览">
+        <article class="summary-card income-card"><div class="card-top"><span class="card-icon income-icon">↙</span><span class="card-label">本月收入</span><span class="card-kicker">INCOME</span></div><div class="card-value"><span>¥</span><strong id="incomeTotal">0.00</strong></div><div class="card-bottom"><span class="trend neutral" id="incomeCount">0 笔收入</span><span class="card-footnote">本月累计</span></div><div class="card-decoration income-decoration">↗</div></article>
+        <article class="summary-card expense-card"><div class="card-top"><span class="card-icon expense-icon">↗</span><span class="card-label">本月支出</span><span class="card-kicker">EXPENSE</span></div><div class="card-value"><span>¥</span><strong id="expenseTotal">0.00</strong></div><div class="card-bottom"><span class="trend neutral" id="expenseCount">0 笔支出</span><span class="card-footnote">本月累计</span></div><div class="card-decoration expense-decoration">↘</div></article>
+        <article class="summary-card balance-card"><div class="card-top"><span class="card-icon balance-icon">⌁</span><span class="card-label">本月结余</span><span class="card-kicker">BALANCE</span></div><div class="card-value"><span>¥</span><strong id="balanceTotal">0.00</strong></div><div class="card-bottom"><span class="trend balance-trend" id="balanceHint">收入 − 支出</span><span class="card-footnote">本月累计</span></div><div class="card-decoration balance-decoration">⌁</div></article>
+      </section>
+      <!-- 支出分类图表与快速记账入口。 -->
+      <section id="insights" class="content-grid"><article class="panel chart-panel"><div class="panel-heading"><div><div class="panel-kicker">SPENDING BREAKDOWN</div><h2>支出分布 <span class="title-period" id="chartMonth"></span></h2></div><button class="text-button" id="chartFilterBtn">本月 <span>⌄</span></button></div><div id="chartArea" class="chart-area"></div><div id="legend" class="legend"></div></article><article class="panel quick-panel"><div class="panel-heading"><div><div class="panel-kicker">QUICK ACTION</div><h2>快速记账</h2></div><span class="quick-mark">✳</span></div><p class="quick-subtitle">选择类型，马上记下这一笔。</p><div class="quick-actions"><button class="quick-action quick-expense" data-type="expense"><span class="quick-action-icon">↗</span><span><strong>记支出</strong><small>记录一笔花销</small></span><span class="action-arrow">→</span></button><button class="quick-action quick-income" data-type="income"><span class="quick-action-icon">↙</span><span><strong>记收入</strong><small>记录一笔进账</small></span><span class="action-arrow">→</span></button></div><div class="quick-tip"><span>✦</span> 每个好习惯，都从记录开始。</div></article></section>
+      <!-- 明细列表及筛选控件。 -->
+      <section id="transactions" class="panel transactions-panel"><div class="panel-heading tx-heading"><div><div class="panel-kicker">RECENT ACTIVITY</div><h2>最近记录 <span class="record-count" id="recordCount">0</span></h2></div><button class="text-button view-all" id="viewAllBtn">查看全部 <span>→</span></button></div><div class="filters"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="搜索备注或类别…" /></label><select id="typeFilter" class="filter-select" aria-label="收支类型"><option value="all">全部类型</option><option value="expense">支出</option><option value="income">收入</option></select><select id="categoryFilter" class="filter-select" aria-label="类别"><option value="all">全部类别</option></select><div class="date-filter"><input id="fromDate" aria-label="开始日期" type="date" /><span>至</span><input id="toDate" aria-label="结束日期" type="date" /></div></div><div class="table-wrap"><table><thead><tr><th>项目</th><th>类别</th><th>日期</th><th>备注</th><th class="amount-head">金额</th><th></th></tr></thead><tbody id="transactionRows"></tbody></table><div id="emptyState" class="empty-state"><div class="empty-icon">✳</div><strong>还没有记录</strong><span>从记下今天的第一笔开始吧</span><button id="emptyAddBtn" class="text-button">＋ 添加一笔</button></div></div><div class="table-footer"><span id="footerCount">显示 0 笔记录</span><span class="local-badge"><i></i> 本地安全存储</span></div></section>
+      <footer class="footer-note"><span>用心记录，让每一分都有意义。</span><span>© 2026 小账本</span></footer>
+    </main>
+  </div>
+  <!-- 新增收入或支出的表单弹窗。 -->
+  <dialog id="entryDialog" class="entry-dialog"><form id="entryForm" method="dialog"><div class="dialog-top"><div><div class="panel-kicker">NEW TRANSACTION</div><h2 id="dialogTitle">记一笔</h2></div><button type="button" id="closeDialog" class="close-button" aria-label="关闭">×</button></div><div class="type-switch"><button type="button" class="type-option selected" data-type="expense">支出</button><button type="button" class="type-option" data-type="income">收入</button></div><input type="hidden" id="entryType" value="expense"/><label class="field"><span>金额 <b>*</b></span><div class="amount-input"><span>¥</span><input id="amountInput" type="number" min="0.01" max="99999999" step="0.01" placeholder="0.00" required /></div></label><div class="field-row"><label class="field"><span>类别 <b>*</b></span><select id="entryCategory" required></select></label><label class="field"><span>日期 <b>*</b></span><input id="entryDate" type="date" required /></label></div><label class="field"><span>备注 <small>选填</small></span><input id="noteInput" type="text" maxlength="60" placeholder="例如：午餐、地铁通勤…" /></label><div class="dialog-actions"><button type="button" id="cancelDialog" class="secondary-button">取消</button><button type="submit" class="primary-button">保存记录 <span>→</span></button></div></form></dialog><div id="toast" class="toast" role="status"></div><!-- 各模块按依赖顺序加载，最后由“启动.js”初始化页面。 -->
+  <script src="09-集成与发布/公共基础.js"></script>
+  <script src="06-数据存储/数据存储.js"></script>
+  <script src="08-交互反馈/交互反馈.js"></script>
+  <script src="04-收支统计/收支统计.js"></script>
+  <script src="01-记账录入/记账录入.js"></script>
+  <script src="03-记录筛选/记录筛选.js"></script>
+  <script src="02-记录列表/记录列表.js"></script>
+  <script src="05-图表展示/图表展示.js"></script>
+  <script src="09-集成与发布/启动.js"></script>
+</body>
+</html>
+
+
